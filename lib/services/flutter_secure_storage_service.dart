@@ -2,7 +2,12 @@ import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
 class FlutterSecureStorageService {
   // Create storage
-  final storage = const FlutterSecureStorage();
+
+  final storage = const FlutterSecureStorage(
+    aOptions: AndroidOptions(
+      encryptedSharedPreferences: true,
+    ),
+  );
 
   Future<String> read(String key) async {
     String? value = await storage.read(key: key);
